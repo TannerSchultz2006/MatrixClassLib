@@ -32,19 +32,22 @@ public:
 };
 
 void matrix::transpose ()   {
+        /*Writes over current matrix with Row->Column flipped matrix*/
         matrix tmpMatrix(columns-1, rows-1);
         for(int i = 1; i < rows; i++) {
                 for(int j = 1; j < columns; j++)
                 tmpMatrix.Matrix[j][i] = matrix::Matrix[i][j];
         }
         free(Matrix[0]);
-        matrix::Matrix = tmpMatrix.Matrix;
+        matrix::Matrix = tmpMatrix.Matrix; //Releasing memory
         rows = tmpMatrix.rows;
         columns = tmpMatrix.columns;
 
 }
 
 void matrix::matrixFill()   {
+        /*Returns called self but every value is filled row by row incramenting
+        This mainly exists for testing and has a non-zero possibility of being removed*/
         int count = 0;
         for (int i = 1; i < rows; i++) {
                 for (int j = 1; j < columns; j++) {
@@ -54,6 +57,7 @@ void matrix::matrixFill()   {
 };
 
 void matrix::read ()   {
+        /*stdout all values of self, seperated by commas*/
         std::cout << rows-1 << "x" << columns-1 << std::endl;
         for(int i = 1; i < rows; i++)   {
                 for(int j = 1; j < columns; j++)   {
@@ -64,6 +68,9 @@ void matrix::read ()   {
 };
 
 matrix dotProduct (matrix matrix0, matrix matrix1) {
+        /* dotProduct (matrix -> matrix0, matrix -> matrix1) -> matrix
+        Multipies two matrix together using dot-product
+        Returns 0x0 matrix and stdout error if matrix0.columns != matrix1.rows*/
         if (matrix0.columns != matrix1.rows) {
                 std::cout << "ERROR! These size matrix are not multiplyable";
                 matrix e(0, 0);
