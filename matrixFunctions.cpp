@@ -33,7 +33,7 @@ matrix matrixSums (matrix matrix0, matrix matrix1) {
         Adds matrix0 and matrix1 returning a matrix or the same size
         Returns 0x0 matrix and stdout error if matrix0.columns != matrix1.rows*/
         if (matrix0.rows != matrix1.rows or matrix0.columns != matrix1.columns) {
-                std::cout << "ERROR! These size matrix are not multiplyable";
+                std::cout << "ERROR! These size matrix are not addable";
                 matrix e(0, 0);
                 return e;
         }
@@ -43,4 +43,5 @@ matrix matrixSums (matrix matrix0, matrix matrix1) {
                         tmpMatrix.Matrix[row][column] = matrix0.Matrix[row][column] + matrix1.Matrix[row][column];
                 }
         }
+        return tmpMatrix;
 }

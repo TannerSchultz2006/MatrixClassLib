@@ -2,6 +2,8 @@
 class matrix {
 
 /*
+Main class for matrix, future will call for multi-class
+Trying to limit external librarys to minimize any dependincies
 matrix (int -> rows, int -> columns) -> matrix of rows*columns size
 matrixFill () -> fills matrix going across columns then down rows incramentin by 1
 matrixRead () -> std::cout's all values of the matrix
