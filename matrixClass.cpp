@@ -1,11 +1,9 @@
 #include<iostream>
+class matrix {
 
 /*
 Main class for matrix, future will call for multi-class
 Trying to limit external librarys to minimize any dependincies
-*/
-class matrix   {
-/*
 matrix (int -> rows, int -> columns) -> matrix of rows*columns size
 matrixFill () -> fills matrix going across columns then down rows incramentin by 1
 matrixRead () -> std::cout's all values of the matrix
@@ -66,26 +64,3 @@ void matrix::read ()   {
                 std::cout << std::endl;
         }
 };
-
-matrix dotProduct (matrix matrix0, matrix matrix1) {
-        /* dotProduct (matrix -> matrix0, matrix -> matrix1) -> matrix
-        Multipies two matrix together using dot-product
-        Returns 0x0 matrix and stdout error if matrix0.columns != matrix1.rows*/
-        if (matrix0.columns != matrix1.rows) {
-                std::cout << "ERROR! These size matrix are not multiplyable";
-                matrix e(0, 0);
-                return e;
-        }
-        matrix1.transpose(); //This is increadably useful due to memory calls, trust me.
-        matrix tmpMatrix(matrix0.rows-1, matrix0.columns-1);
-        for (int row = 1; row < matrix0.rows; row++) {
-                for (int column = 1; column < matrix0.columns; column++) {
-                        int runningSum = 0;
-                        for (int i = 1; i < matrix1.rows; i++) {
-                                runningSum += matrix0.Matrix[row][i]*matrix1.Matrix[column][i];
-                        }
-                        tmpMatrix.Matrix[row][column] = runningSum;
-                }
-        }
-        return tmpMatrix;
-}
